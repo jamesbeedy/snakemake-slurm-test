@@ -4,22 +4,22 @@ rule all:
 
 rule load:
     input:
-        "data/raw_data_load.txt"
+        "data/raw_data.txt"
     output:
         "results/processed_data_loaded.txt"
     resources:
-        mem_mb=500,
-        threads=lambda wildcards, attempt: 2 if attempt < 2 else 4
+        mem_mb=400,
+        threads=1
     shell:
         "awk '{{print toupper($0)}}' {input} > {output}"
 
 rule preprocess:
     input:
-        "data/raw_data.txt"
+        "results/processed_data_loaded.txt"
     output:
         "results/processed_data.txt"
     resources:
-        mem_mb=1000,
-        threads=lambda wildcards, attempt: 2 if attempt < 2 else 4
+        mem_mb=600,
+        threads=4
     shell:
-        "awk '{{print toupper($0)}}' {input} > {output}"
+        "awk '{{print tolower($0)}}' {input} > {output}"
