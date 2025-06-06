@@ -5,9 +5,4 @@
 #SBATCH --mem={resources.mem_mb}
 #SBATCH --cpus-per-task={threads}
 
-# Load environment if needed
-source ~/.bashrc
-source /jupyterhub-nfs/venv/bin/activate
-# conda activate snakemake-env
-
 {exec_job}

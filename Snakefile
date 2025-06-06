@@ -8,7 +8,7 @@ rule load:
     output:
         "results/processed_data_loaded.txt"
     resources:
-        mem_mb=1000,
+        mem_mb=500,
         threads=lambda wildcards, attempt: 2 if attempt < 2 else 4
     shell:
         "awk '{{print toupper($0)}}' {input} > {output}"
