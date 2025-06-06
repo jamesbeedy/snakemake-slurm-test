@@ -1,0 +1,43 @@
+None
+host: juju-5f1f7b-4
+Building DAG of jobs...
+SLURM run ID: 7badbd6b-3d5a-408c-87db-7ab9018bf6a8
+Using shell: /usr/bin/bash
+Provided remote nodes: 10
+Job stats:
+job           count
+----------  -------
+all               1
+preprocess        1
+total             2
+
+Select jobs to execute...
+Execute 1 jobs...
+[Fri Jun  6 21:14:26 2025]
+rule preprocess:
+    input: data/raw_data.txt
+    output: results/processed_data.txt
+    jobid: 1
+    reason: Missing output files: results/processed_data.txt
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>, threads=2
+Shell command: awk '{print toupper($0)}' data/raw_data.txt > results/processed_data.txt
+No SLURM account given, trying to guess.
+Unable to guess SLURM account. Trying to proceed without.
+No wall time information given. This might or might not work on your cluster. If not, specify the resource runtime in your rule or as a reasonable default via --default-resources.
+Job 1 has been submitted with SLURM jobid 4 (log: /home/johndoe/snakemake_slurm_example/.snakemake/slurm_logs/rule_preprocess/4.log).
+[Fri Jun  6 21:15:06 2025]
+Finished jobid: 1 (Rule: preprocess)
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Fri Jun  6 21:15:06 2025]
+localrule all:
+    input: results/processed_data.txt
+    jobid: 0
+    reason: Input files updated by another job: results/processed_data.txt
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/tmp, threads=1
+Shell command: None
+[Fri Jun  6 21:15:06 2025]
+Finished jobid: 0 (Rule: all)
+2 of 2 steps (100%) done
+Complete log(s): /home/johndoe/snakemake_slurm_example/.snakemake/log/2025-06-06T211426.099376.snakemake.log

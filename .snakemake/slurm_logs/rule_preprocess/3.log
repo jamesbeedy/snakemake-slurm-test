@@ -1,0 +1,41 @@
+host: juju-5f1f7b-6
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided remote nodes: 1
+Provided resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, threads=2
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Jun  6 21:12:49 2025]
+rule preprocess:
+    input: data/raw_data.txt
+    output: results/processed_data.txt
+    jobid: 0
+    reason: Forced execution
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>, threads=2
+Shell command: awk '{print toupper($0)}' data/raw_data.txt > results/processed_data.txt
+host: juju-5f1f7b-6
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Provided resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, threads=2
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Jun  6 21:12:50 2025]
+localrule preprocess:
+    input: data/raw_data.txt
+    output: results/processed_data.txt
+    jobid: 0
+    reason: Forced execution
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=/tmp, threads=2
+Shell command: awk '{print toupper($0)}' data/raw_data.txt > results/processed_data.txt
+[Fri Jun  6 21:12:50 2025]
+Finished jobid: 0 (Rule: preprocess)
+1 of 1 steps (100%) done
+Storing output in storage.
+[Fri Jun  6 21:12:51 2025]
+Finished jobid: 0 (Rule: preprocess)
+1 of 1 steps (100%) done
+Storing output in storage.
