@@ -9,7 +9,7 @@ rule load:
         "results/processed_data_loaded.txt"
     resources:
         mem_mb=400,
-        threads=1
+        threads=4
     shell:
         "awk '{{print toupper($0)}}' {input} > {output}"
 
