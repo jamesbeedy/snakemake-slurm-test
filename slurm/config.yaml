@@ -1,10 +1,14 @@
 executor: slurm
 jobs: 10
 default-resources:
-  - mem_mb=1000
-  - threads=1
+  - mem_mb=900
+  - threads=2
+  - runtime=10
 jobscript: job-script.sh
 keep-going: true
 printshellcmds: true
 rerun-incomplete: true
+immediate-submit: true
+notemp: true
 latency-wait: 30
+scheduler: greedy
